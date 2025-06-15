@@ -3,11 +3,11 @@
 <title>Static Call Graph - [FMU\FMU.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image FMU\FMU.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu May 29 20:17:26 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Jun 15 18:27:34 2025
 <BR><P>
-<H3>Maximum Stack Usage =        640 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        528 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-RocketFlight &rArr; FixedWingControl &rArr; f_printf &rArr; putc_bfd &rArr;  putc_bfd (Cycle)
+IMUReceive &rArr; FixedWingControl &rArr; f_printf &rArr; putc_bfd &rArr;  putc_bfd (Cycle)
 <P>
 <H3>
 Functions with no stack information
@@ -21,9 +21,9 @@ Mutually Recursive functions
 </H3> <LI><a href="#[86]">ADC3_IRQHandler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[86]">ADC3_IRQHandler</a><BR>
  <LI><a href="#[9]">BusFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[9]">BusFault_Handler</a><BR>
  <LI><a href="#[7]">HardFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[7]">HardFault_Handler</a><BR>
+ <LI><a href="#[215]">putc_bfd</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[215]">putc_bfd</a><BR>
  <LI><a href="#[8]">MemManage_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[8]">MemManage_Handler</a><BR>
  <LI><a href="#[6]">NMI_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[6]">NMI_Handler</a><BR>
- <LI><a href="#[215]">putc_bfd</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[215]">putc_bfd</a><BR>
  <LI><a href="#[1f4]">mem_cmp</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1f4]">mem_cmp</a><BR>
  <LI><a href="#[ac]">StartDefaultTask</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[ac]">StartDefaultTask</a><BR>
  <LI><a href="#[a]">UsageFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[a]">UsageFault_Handler</a><BR>
@@ -1316,15 +1316,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDWrite
 </UL>
 
-<P><STRONG><a name="[114]"></a>FixedWingControl</STRONG> (Thumb, 424 bytes, Stack size 128 bytes, control.o(i.FixedWingControl))
+<P><STRONG><a name="[114]"></a>FixedWingControl</STRONG> (Thumb, 430 bytes, Stack size 128 bytes, control.o(i.FixedWingControl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 512 + Unknown Stack Size
 <LI>Call Chain = FixedWingControl &rArr; f_printf &rArr; putc_bfd &rArr;  putc_bfd (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_printf
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 <LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ServoSet
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RocketFlight
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUReceive
 </UL>
 
 <P><STRONG><a name="[117]"></a>HAL_ADC_ConfigChannel</STRONG> (Thumb, 928 bytes, Stack size 40 bytes, stm32h7xx_hal_adc.o(i.HAL_ADC_ConfigChannel))
@@ -2248,14 +2248,16 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUReceive
 </UL>
 
-<P><STRONG><a name="[a7]"></a>IMUReceive</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, taskinit.o(i.IMUReceive))
-<BR><BR>[Stack]<UL><LI>Max Depth = 184 + Unknown Stack Size
-<LI>Call Chain = IMUReceive &rArr; IMUDataConvert &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[a7]"></a>IMUReceive</STRONG> (Thumb, 134 bytes, Stack size 16 bytes, taskinit.o(i.IMUReceive))
+<BR><BR>[Stack]<UL><LI>Max Depth = 528 + Unknown Stack Size
+<LI>Call Chain = IMUReceive &rArr; FixedWingControl &rArr; f_printf &rArr; putc_bfd &rArr;  putc_bfd (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InfoPrint
 <LI><a href="#[19b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_DMA
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ServoSet
 <LI><a href="#[19a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUDataConvert
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FixedWingControl
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> taskinit.o(i.TaskCreate)
 </UL>
@@ -2305,9 +2307,9 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32h743xx.o(RESET)
 </UL>
-<P><STRONG><a name="[a5]"></a>RocketFlight</STRONG> (Thumb, 260 bytes, Stack size 128 bytes, taskinit.o(i.RocketFlight))
-<BR><BR>[Stack]<UL><LI>Max Depth = 640 + Unknown Stack Size
-<LI>Call Chain = RocketFlight &rArr; FixedWingControl &rArr; f_printf &rArr; putc_bfd &rArr;  putc_bfd (Cycle)
+<P><STRONG><a name="[a5]"></a>RocketFlight</STRONG> (Thumb, 252 bytes, Stack size 128 bytes, taskinit.o(i.RocketFlight))
+<BR><BR>[Stack]<UL><LI>Max Depth = 512 + Unknown Stack Size
+<LI>Call Chain = RocketFlight &rArr; f_printf &rArr; putc_bfd &rArr;  putc_bfd (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[1b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Stop_IT
@@ -2315,7 +2317,6 @@ Global Symbols
 <LI><a href="#[19b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
 <LI><a href="#[1b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEventGroupWaitBits
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_printf
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FixedWingControl
 <LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FileClose
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
@@ -2665,6 +2666,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ServoSet
 </UL>
 <BR>[Called By]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FixedWingControl
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUReceive
 </UL>
 
 <P><STRONG><a name="[ac]"></a>StartDefaultTask</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(i.StartDefaultTask))

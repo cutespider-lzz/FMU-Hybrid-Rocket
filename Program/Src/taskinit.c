@@ -138,13 +138,14 @@ void RocketFlight(void *pvParameters)
 	xEventGroupWaitBits(FMUCheckEvent,0x08,pdFALSE,pdTRUE,portMAX_DELAY);
 	while(1)
 	{
+	  
 		xSemaphoreTake(ControlSemaphore,portMAX_DELAY);
 		
 		if(ControlTime >= 5) HAL_GPIO_WritePin(BAT1_GPIO_Port,BAT1_Pin,GPIO_PIN_SET);//5s一口爆炸螺栓点燃
 		if(ControlTime >= 10) HAL_GPIO_WritePin(BAT2_GPIO_Port,BAT2_Pin,GPIO_PIN_SET);//10s二口爆炸螺栓点燃
 		if(ControlTime <= 20) //飞控运行时间
 		{
-			FixedWingControl();//舵机控制程序运行
+			
 			sprintf((char *)StorageBuff,"time: %0.2f ax: %0.2f ay: %0.2f az: %0.2f gx: %0.2f gy: %0.2f gz: %0.2f p: %0.2f r: %0.2f y: %0.2f pre: %0.2f h: %0.2f  lon:%0.8f  lat:%0.8f  alt:%0.2f\n",\
 			ControlTime,IMUData.acc_x,IMUData.acc_y,IMUData.acc_z,IMUData.gyr_x,IMUData.gyr_y,IMUData.gyr_z,IMUData.pitch,IMUData.roll,IMUData.yaw,IMUData.pressure,IMUData.height,0,0,0);
 			f_printf(&SDFile,(char *)StorageBuff);
@@ -156,6 +157,7 @@ void RocketFlight(void *pvParameters)
 			FileClose();
 			vTaskSuspend(NULL);
 		}
+		
 	}
 }
 
@@ -257,6 +259,17 @@ void IMUReceive(void *pvParameters)
 		else 
 		{
 			InfoPrint(PrintChannel,"IMU error!\r\n");
+		}
+		if(ControlTime <= 3)
+		{
+			ServoSet(ServoChannel_1,0);
+			ServoSet(ServoChannel_2,0);
+			ServoSet(ServoChannel_3,0);
+			ServoSet(ServoChannel_4,0);
+		}
+		else
+		{
+			FixedWingControl();//舵机控制程序运行
 		}
 	}
 }

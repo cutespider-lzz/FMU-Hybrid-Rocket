@@ -7,7 +7,7 @@ fmu\bsp_driver_sd.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h
 fmu\bsp_driver_sd.o: ../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h
 fmu\bsp_driver_sd.o: ../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h
 fmu\bsp_driver_sd.o: ../Drivers/CMSIS/Include/core_cm7.h
-fmu\bsp_driver_sd.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+fmu\bsp_driver_sd.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdint.h
 fmu\bsp_driver_sd.o: ../Drivers/CMSIS/Include/cmsis_version.h
 fmu\bsp_driver_sd.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 fmu\bsp_driver_sd.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -15,8 +15,8 @@ fmu\bsp_driver_sd.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 fmu\bsp_driver_sd.o: ../Drivers/CMSIS/Device/ST/STM32H7xx/Include/system_stm32h7xx.h
 fmu\bsp_driver_sd.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h
 fmu\bsp_driver_sd.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-fmu\bsp_driver_sd.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-fmu\bsp_driver_sd.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+fmu\bsp_driver_sd.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
+fmu\bsp_driver_sd.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\math.h
 fmu\bsp_driver_sd.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h
 fmu\bsp_driver_sd.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio.h
 fmu\bsp_driver_sd.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio_ex.h

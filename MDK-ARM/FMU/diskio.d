@@ -12,7 +12,7 @@ fmu\diskio.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h
 fmu\diskio.o: ../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h
 fmu\diskio.o: ../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h
 fmu\diskio.o: ../Drivers/CMSIS/Include/core_cm7.h
-fmu\diskio.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+fmu\diskio.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdint.h
 fmu\diskio.o: ../Drivers/CMSIS/Include/cmsis_version.h
 fmu\diskio.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 fmu\diskio.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -20,8 +20,8 @@ fmu\diskio.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 fmu\diskio.o: ../Drivers/CMSIS/Device/ST/STM32H7xx/Include/system_stm32h7xx.h
 fmu\diskio.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h
 fmu\diskio.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-fmu\diskio.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-fmu\diskio.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+fmu\diskio.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
+fmu\diskio.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\math.h
 fmu\diskio.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h
 fmu\diskio.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio.h
 fmu\diskio.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio_ex.h

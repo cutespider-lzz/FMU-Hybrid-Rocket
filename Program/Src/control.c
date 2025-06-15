@@ -109,9 +109,11 @@ void FixedWingControl(void)
 			servo_pitch = servo_pitch>45?45:servo_pitch;
 			servo_pitch = servo_pitch<-45?-45:servo_pitch;
 			ServoSet(ServoChannel_1,servo_roll);
-			ServoSet(ServoChannel_2,servo_pitch);
-			__HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_3,ReceiverChannel[2]);
-			__HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_4,ReceiverChannel[3]);
+			ServoSet(ServoChannel_2,servo_roll);
+			ServoSet(ServoChannel_3,servo_roll);
+			ServoSet(ServoChannel_4,servo_roll);
+//			__HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_3,ReceiverChannel[2]);
+//			__HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_4,ReceiverChannel[3]);
 
 	
 	//飞行参数保存，保存内容为:time IMUStatus ax ay az gx gy gz pitch roll yaw pre height GNSSStatus lon lat alt velocity v_e v_n ReceiverStatus ch[1-8] chout[1-8]
